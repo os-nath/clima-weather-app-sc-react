@@ -1,8 +1,13 @@
 import "./App.css";
+import ClimaApp from "./ClimaApp.js";
 
 function App() {
   return (
     <div className="App">
+
+      <ClimaApp />
+
+      
       <h1>Clima Tempo</h1>
       <footer>
         Open source code on{" "}
