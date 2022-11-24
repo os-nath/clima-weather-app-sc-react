@@ -1,16 +1,21 @@
 import "./App.css";
 import ClimaApp from "./ClimaApp.js";
+import CssBaseline from "@mui/material/CssBaseline";
 
 function App() {
   return (
     <div className="App">
+      <h1>Clima Tempo</h1>
 
       <ClimaApp />
 
-      
-      <h1>Clima Tempo</h1>
+      <CssBaseline enableColorScheme />
+
+      <br />
+      <br />
+      <br />
       <footer>
-        Open source code on{" "}
+        Open-sourced code on{" "}
         <a
           href="https://github.com/os-nath/clima-weather-app-sc-react"
           target="_blank"
@@ -32,7 +37,9 @@ function App() {
           href="https://637f1f9f48c65532b6f796d4--wondrous-pothos-41872e.netlify.app/"
           target="_blank"
           rel="noreferrer"
-        > Netlify
+        >
+          {" "}
+          Netlify
         </a>
       </footer>
     </div>

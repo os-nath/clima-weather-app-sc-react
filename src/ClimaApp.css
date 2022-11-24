@@ -1,0 +1,11 @@
+body {
+    background-color: aqua;
+}
+
+li {
+    list-style-type: none;
+}
+
+h2 {
+    font-size: 6vh;
+}
