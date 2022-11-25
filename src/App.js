@@ -1,15 +1,18 @@
 import "./App.css";
+import "./ClimaApp.css";
 import ClimaApp from "./ClimaApp.js";
-import CssBaseline from "@mui/material/CssBaseline";
+// import CssBaseline from "@mui/material/CssBaseline";
 
 function App() {
   return (
     <div className="App">
-      <h1>Clima Tempo</h1>
+      <h1>
+        <img src="ClimaLogo.png" alt="appLogo" height="80vh"></img>
+      </h1>
 
       <ClimaApp />
 
-      <CssBaseline enableColorScheme />
+      {/* <CssBaseline enableColorScheme /> Not sure if I'll use it or when to start using it*/}
 
       <br />
       <br />
