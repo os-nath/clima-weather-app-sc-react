@@ -1,16 +1,18 @@
 import "./App.css";
 import "./ClimaApp.css";
 import ClimaApp from "./ClimaApp.js";
+import { Grid } from "@mui/material";
+
 // import CssBaseline from "@mui/material/CssBaseline";
 
 function App() {
   return (
     <div className="App">
-      <h1>
+      <Grid xs={1} sx={{ width: "30%", mt: 10 }}>
         <img src="ClimaLogo.png" alt="appLogo" height="80vh"></img>
-      </h1>
+      </Grid>
 
-      <ClimaApp />
+      <ClimaApp defaultCity="Perth" />
 
       {/* <CssBaseline enableColorScheme /> Not sure if I'll use it or when to start using it*/}
 
@@ -18,13 +20,13 @@ function App() {
       <br />
       <br />
       <footer>
-        Open-sourced code on{" "}
+        Open-sourced{" "}
         <a
           href="https://github.com/os-nath/clima-weather-app-sc-react"
           target="_blank"
           rel="noreferrer"
         >
-          GitHub{" "}
+          code{" "}
         </a>{" "}
         by
         <a
