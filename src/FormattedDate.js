@@ -13,27 +13,27 @@ export default function FormattedDate(props) {
   ];
   let day = days[props.date.getDay()];
 
-//  let currentDate = date.getDate();
+ let currentDate = props.date.getDate();
 
-//  let monthIndex = date.getMonth();
-//  let months = [
-//    "Jan",
-//    "Feb",
-//    "Mar",
-//    "Apr",
-//    "May",
-//    "Jun",
-//    "Jul",
-//    "Aug",
-//    "Sep",
-//    "Oct",
-//    "Nov",
-//    "Dec",
-//  ];
+ let monthIndex = props.date.getMonth();
+ let months = [
+   "Jan",
+   "Feb",
+   "Mar",
+   "Apr",
+   "May",
+   "Jun",
+   "Jul",
+   "Aug",
+   "Sep",
+   "Oct",
+   "Nov",
+   "Dec",
+ ];
 
-//  let month = months[monthIndex];
+ let month = months[monthIndex];
 
-//  let currentYear = date.getFullYear();
+ let currentYear = props.date.getFullYear();
 
 
 
@@ -48,17 +48,8 @@ export default function FormattedDate(props) {
   }
   return (
     <div>
-      {day} {hours}:{minutes}
+      {day}, {currentDate} {month} {currentYear}, {hours}:{minutes}
     </div>
   );
 }
 
-// {
-//   currentDate;
-// }
-// {
-//   month;
-// }
-// {
-//   currentYear;
-// }
