@@ -1,37 +1,57 @@
 import React, { useState } from "react";
 import { Button, Box, Grid, Card, CardContent, TextField } from "@mui/material";
 // import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
+// import IconButton from "@material-ui/core/IconButton";
 
 import axios from "axios";
 import "./ClimaApp.css";
+import FormattedDate from "./FormattedDate";
 
 export default function ClimaApp(props) {
-  const [weatherData, setWeatherData] = useState({});
-
-  const apiKey = "d122489789ce9e01ba81bb0f4a64028b";
-  const units = "metric";
-  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=${units}`;
-  axios.get(apiUrl).then(handleResponse);
+  const [weatherData, setWeatherData] = useState({ ready: false });
+  const [city, setCity] = useState(props.defaultCity);
 
   function handleResponse(response) {
-    console.log(response.data);
+    // console.log(response.data);
 
     setWeatherData({
       ready: true,
+      coordinates: response.data.coord,
       temperature: response.data.main.temp,
-      humidity: response.data.man.humidity,
+      humidity: response.data.main.humidity,
+      date: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
-      date: "Friday 09:00",
-      iconUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
-      wind: response.data.main.wind.speed,
+      icon: response.data.weather[0].icon,
+      wind: response.data.wind.speed,
       city: response.data.name,
     });
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
+
+  function handleCityChange(event) {
+    setCity(event.target.value);
+  }
+
+  function search() {
+    const apiKey = "d122489789ce9e01ba81bb0f4a64028b";
+    const units = "metric";
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+    axios.get(apiUrl).then(handleResponse);
   }
 
   // if (weatherData.ready) {
   return (
     <Card
-      sx={{ width: "100vh", height: "80vh", display: "inline-flex", mt: 6 }}
+      sx={{
+        width: "100vh",
+        height: "80vh",
+        display: "inline-flex",
+        mt: 6,
+      }}
     >
       <CardContent sx={{ p: 3, m: 0, display: "inline-flex" }}>
         <Box
@@ -60,10 +80,12 @@ export default function ClimaApp(props) {
               }}
             >
               <TextField
+                onSubmit={handleSubmit}
                 id="outlined-search"
                 label="Type a city name"
                 type="search"
                 size="small"
+                onChange={handleCityChange}
                 sx={{ width: "40vh" }}
               />
               <Button
@@ -85,8 +107,10 @@ export default function ClimaApp(props) {
                   },
                 }}
               >
-                {/* <SearchRoundedIcon /> */}
+                Search
               </Button>
+
+         
 
               <Button
                 variant="contained"
@@ -96,7 +120,6 @@ export default function ClimaApp(props) {
                   bgcolor: "rgb(114, 189, 114)",
                   fontSize: 16,
                   fontFamily: "Trebuchet MS",
-
                   width: 68,
                   "&:hover": {
                     backgroundColor: "#E8B923",
@@ -110,9 +133,11 @@ export default function ClimaApp(props) {
             <Grid xs={5} sx={{ textAlign: "left" }}>
               <h2>Itabira</h2>
               <ul>
-                <li>Wednesday, 10:19am</li>
+                <li>
+                  <FormattedDate date={props.data.date} />
+                 
+                </li>
                 <li>Sunny</li>
-
                 <li>Precipitation: 15%</li>
                 <li>Humidity: {weatherData.humidity}</li>
                 <li>Wind: {weatherData.wind}</li>
@@ -141,14 +166,6 @@ export default function ClimaApp(props) {
                 height="80vh"
               ></img>
             </Grid>
-
-            {/* <Grid xs={4} sx={{ width: "50%", textAlign: "left" }}>
-              <ul>
-                <li>Precipitation: 15%</li>
-                <li>Humidity: {weatherData.humidity}</li>
-                <li>Wind: {weatherData.wind}</li>
-              </ul>
-            </Grid> */}
           </Grid>
         </Box>
       </CardContent>
