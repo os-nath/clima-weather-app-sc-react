@@ -23,16 +23,14 @@ export default function ClimaApp(props) {
 
       temperature: response.data.temperature.current,
       humidity: response.data.temperature.humidity,
-
       date: new Date(response.data.time * 1000),
-
       description: response.data.condition.description,
-      // icon: response.data.condition.icon,
+      icon: response.data.condition.icon_url,
+      iconDescription: response.data.condition.icon,
       wind: response.data.wind.speed,
       city: response.data.city,
       country: response.data.country,
     });
-    
   }
 
   function handleSubmit(event) {
@@ -79,10 +77,11 @@ export default function ClimaApp(props) {
               sx={{
                 textAlign: "left",
                 ml: 4,
+                mt: 1,
                 display: "flex-start",
               }}
             >
-              <img src="ClimaLogo.png" alt="appLogo" height="80vh"></img>
+              <img src="ClimaLogo.png" alt="appLogo" height="90vh"></img>
             </Grid>
             <Grid
               xs={11}
@@ -169,15 +168,15 @@ export default function ClimaApp(props) {
             <Grid
               xs={1}
               sx={{
-                mt: 12,
+                mt: 10,
                 ml: 3,
                 display: "flex-start",
               }}
             >
               <img
-                src="sunnyBw.png"
-                alt={weatherData.description}
-                height="80vh"
+                src={weatherData.icon}
+                alt={weatherData.iconDescription}
+                height="140vh"
               ></img>
             </Grid>
           </Grid>
