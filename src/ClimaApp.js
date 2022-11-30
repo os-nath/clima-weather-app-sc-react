@@ -61,6 +61,7 @@ export default function ClimaApp(props) {
         display: "inline-flex",
         mt: 6,
         mb: 0,
+        bgcolor: "#e2dee4",
       }}
     >
       <CardContent sx={{ p: 3, m: 0, display: "inline-flex" }}>
