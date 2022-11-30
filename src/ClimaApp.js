@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Button, Box, Grid, Card, CardContent, TextField } from "@mui/material";
+import { Button, Box, Grid, Card, CardContent, TextField, Icon } from "@mui/material";
+
 import axios from "axios";
 import "./ClimaApp.css";
 
@@ -28,7 +29,9 @@ export default function ClimaApp(props) {
 
   // if (weatherData.ready) {
   return (
-    <Card sx={{ width: "90vh", height: "60vh", display: "inline-flex", m: 0 }}>
+    <Card
+      sx={{ width: "100vh", height: "80vh", display: "inline-flex", mt: 6 }}
+    >
       <CardContent sx={{ p: 3, m: 0, display: "inline-flex" }}>
         <Box
           sx={{
@@ -37,82 +40,51 @@ export default function ClimaApp(props) {
             borderRadius: 1,
           }}
         >
-          <Grid container>
-            <Grid xs={5} sx={{ textAlign: "left" }}>
-              <h2>Itabira</h2>
-              <ul>
-                <li>{weatherData.date}</li>
-                <li>{weatherData.description}</li>
-              </ul>
-            </Grid>
-
+          <Grid container sx={{ mt: 2 }}>
             <Grid
-              xs={7}
+              xs={1}
               sx={{
-                display: "flex",
-                alingItems: "flex-end",
-                mt: 12,
-                textTransform: "capitalize",
-              }}
-            >
-              <img
-                src={weatherData.iconUrl}
-                alt={weatherData.description}
-                height="80vh"
-              ></img>
-            </Grid>
-
-            <Grid
-              xs={3}
-              sx={{
-                width: "50%",
                 textAlign: "left",
                 ml: 4,
-                display: "inline-flex",
+                display: "flex-start",
               }}
             >
-              <h3>19</h3>
-
-              <h4>
-                <a href="/">°C </a>|<a href="/">°F</a>{" "}
-              </h4>
+              <img src="ClimaLogo.png" alt="appLogo" height="80vh"></img>
             </Grid>
-
-            <Grid xs={4} sx={{ width: "50%", textAlign: "left" }}>
-              <ul>
-                <li>Precipitation: 15%</li>
-                <li>Humidity: {weatherData.humidity}</li>
-                <li>Wind: {weatherData.wind}</li>
-              </ul>
-            </Grid>
-
-            <Grid xs={12} sx={{ mb: 3, mt: 4, ml: 4, textAlign: "left" }}>
+            <Grid
+              xs={11}
+              sx={{
+                ml: 32,
+                display: "flex-start",
+              }}
+            >
               <TextField
                 id="outlined-search"
                 label="Type a city name"
                 type="search"
                 size="small"
+                sx={{ width: "40vh" }}
               />
-
-              {/* <form>
-<input type="search" placeholder="Enter a city name" /> */}
-
               <Button
                 variant="contained"
                 sx={{
                   textTransform: "capitalize",
                   color: "#000000",
-                  bgcolor: "rgb(90, 137, 224)",
+                  bgcolor: "#4595D4",
                   fontSize: 16,
                   fontFamily: "Trebuchet MS",
+
                   ml: 0.8,
                   mr: 0.8,
+
+                  width: 68,
+
                   "&:hover": {
-                    backgroundColor: "rgb(191, 75, 227);",
+                    backgroundColor: "#E8B923",
                   },
                 }}
               >
-                Search
+                <SearchRoundedIcon />
               </Button>
 
               <Button
@@ -123,21 +95,59 @@ export default function ClimaApp(props) {
                   bgcolor: "rgb(114, 189, 114)",
                   fontSize: 16,
                   fontFamily: "Trebuchet MS",
+
+                  width: 68,
                   "&:hover": {
-                    backgroundColor: "rgb(191, 75, 227);",
+                    backgroundColor: "#E8B923",
                   },
                 }}
               >
                 Current
               </Button>
-              {/* </form> */}
             </Grid>
 
-            {/* <Grid xs={12} sx={{ mt: 1, mb: 1 }}>
-<Button sx={{ color: "greenyellow" }} variant="contained">
-Hello World
-</Button>
-</Grid> */}
+            <Grid xs={5} sx={{ textAlign: "left" }}>
+              <h2>Itabira</h2>
+              <ul>
+                <li>Wednesday, 10:19am</li>
+                <li>Sunny</li>
+
+                <li>Precipitation: 15%</li>
+                <li>Humidity: {weatherData.humidity}</li>
+                <li>Wind: {weatherData.wind}</li>
+              </ul>
+            </Grid>
+
+            <Grid xs={3} sx={{ mt: 12, display: "inline-flex" }}>
+              <h3>19</h3>
+
+              <h4>
+                <a href="/">°C </a>|<a href="/">°F</a>{" "}
+              </h4>
+            </Grid>
+
+            <Grid
+              xs={1}
+              sx={{
+                mt: 12,
+                ml: 3,
+                display: "flex-start",
+              }}
+            >
+              <img
+                src="sunnyBw.png"
+                alt={weatherData.description}
+                height="80vh"
+              ></img>
+            </Grid>
+
+            {/* <Grid xs={4} sx={{ width: "50%", textAlign: "left" }}>
+              <ul>
+                <li>Precipitation: 15%</li>
+                <li>Humidity: {weatherData.humidity}</li>
+                <li>Wind: {weatherData.wind}</li>
+              </ul>
+            </Grid> */}
           </Grid>
         </Box>
       </CardContent>

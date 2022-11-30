@@ -1,5 +1,5 @@
 body {
-  background-color: #eddbf7;
+  background-color: #F1EFF2;
   color: #016fc5;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
@@ -14,16 +14,21 @@ button {
 li {
   list-style-type: none;
   color: #016fc5;
+
+}
+
+li + li {
+  margin-top: 4px;
 }
 
 h2 {
-  font-size: 6vh;
+  font-size: 7vh;
   color: #024e88;
-  margin: 30px 15px 20px 15px;
+  margin: 30px 15px 10px 36px;
 }
 
 h3 {
-  font-size: 8vh;
+  font-size: 9vh;
   color: #024e88;
   margin: 0.2px 2px;
 }

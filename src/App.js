@@ -3,14 +3,13 @@ import "./ClimaApp.css";
 import ClimaApp from "./ClimaApp.js";
 import { Grid } from "@mui/material";
 
+
 // import CssBaseline from "@mui/material/CssBaseline";
 
 function App() {
   return (
     <div className="App">
-      <Grid xs={1} sx={{ width: "30%", mt: 10 }}>
-        <img src="ClimaLogo.png" alt="appLogo" height="80vh"></img>
-      </Grid>
+     
 
       <ClimaApp defaultCity="Perth" />
 
