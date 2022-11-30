@@ -12,6 +12,31 @@ export default function FormattedDate(props) {
     "Saturday",
   ];
   let day = days[props.date.getDay()];
+
+//  let currentDate = date.getDate();
+
+//  let monthIndex = date.getMonth();
+//  let months = [
+//    "Jan",
+//    "Feb",
+//    "Mar",
+//    "Apr",
+//    "May",
+//    "Jun",
+//    "Jul",
+//    "Aug",
+//    "Sep",
+//    "Oct",
+//    "Nov",
+//    "Dec",
+//  ];
+
+//  let month = months[monthIndex];
+
+//  let currentYear = date.getFullYear();
+
+
+
   let hours = props.date.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
@@ -27,3 +52,13 @@ export default function FormattedDate(props) {
     </div>
   );
 }
+
+// {
+//   currentDate;
+// }
+// {
+//   month;
+// }
+// {
+//   currentYear;
+// }

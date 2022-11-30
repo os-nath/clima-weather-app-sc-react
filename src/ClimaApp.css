@@ -1,11 +1,10 @@
 body {
-  background-color: #F1EFF2;
+  background-color: #f1eff2;
   color: #016fc5;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   text-align: center;
 }
-
 
 button {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
@@ -15,7 +14,7 @@ button {
 li {
   list-style-type: none;
   color: #016fc5;
-
+  text-transform: capitalize;
 }
 
 li + li {
@@ -25,13 +24,25 @@ li + li {
 h2 {
   font-size: 7vh;
   color: #024e88;
-  margin: 30px 15px 10px 36px;
+  margin: 30px 15px 5px 36px;
 }
 
 h3 {
   font-size: 9vh;
   color: #024e88;
   margin: 0.2px 2px;
+}
+
+h4 {
+  color: #e8b923;
+  margin: 3px 15px 10px 46px;
+  font-size: 2vh;
+}
+
+h5 {
+  font-size: 2vh;
+  color: rgb(191, 75, 227);
+  margin-top: 14px;
 }
 
 a {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Box, Grid, Card, CardContent, TextField } from "@mui/material";
-// import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
-// import IconButton from "@material-ui/core/IconButton";
+import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
+import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
 
 import axios from "axios";
 import "./ClimaApp.css";
@@ -16,29 +16,23 @@ export default function ClimaApp(props) {
     setWeatherData({
       ready: true,
       coordinates:
-        "Lat: " +
+        "Lat Long: " +
         response.data.coordinates.latitude +
-        " / Lon: " +
+        ", " +
         response.data.coordinates.longitude,
-      temperature: 65,
-      humidity: 65,
+
+      temperature: response.data.temperature.current,
+      humidity: response.data.temperature.humidity,
+
       date: new Date(response.data.time * 1000),
-      description: "yes",
-      icon: "",
-      wind: 45,
-      city: "Perth",
+
+      description: response.data.condition.description,
+      // icon: response.data.condition.icon,
+      wind: response.data.wind.speed,
+      city: response.data.city,
+      country: response.data.country,
     });
-    // setWeatherData({
-    //   ready: true,
-    //   coordinates: response.data.coord,
-    //   temperature: response.data.main.temp,
-    //   humidity: response.data.main.humidity,
-    //   date: new Date(response.data.dt * 1000),
-    //   description: response.data.weather[0].description,
-    //   icon: response.data.weather[0].icon,
-    //   wind: response.data.wind.speed,
-    //   city: response.data.name,
-    // });
+    
   }
 
   function handleSubmit(event) {
@@ -68,6 +62,7 @@ export default function ClimaApp(props) {
         height: "80vh",
         display: "inline-flex",
         mt: 6,
+        mb: 0,
       }}
     >
       <CardContent sx={{ p: 3, m: 0, display: "inline-flex" }}>
@@ -124,7 +119,7 @@ export default function ClimaApp(props) {
                   },
                 }}
               >
-                Search
+                <SearchRoundedIcon />
               </Button>
 
               <Button
@@ -141,22 +136,22 @@ export default function ClimaApp(props) {
                   },
                 }}
               >
-                Current
+                <PlaceOutlinedIcon />
               </Button>
             </Grid>
 
             <Grid xs={5} sx={{ textAlign: "left" }}>
               <h2>{city}</h2>
+              <h4>{weatherData.country}</h4>
               {weatherData.ready ? (
                 <ul>
                   <li>
                     <FormattedDate date={weatherData.date} />
                   </li>
-                  <li>Sunny</li>
-                  <li>Precipitation: 15%</li>
-                  <li>Humidity: {weatherData.humidity}</li>
-                  <li>Wind: {weatherData.wind}</li>
-                  <li>Co-ords: {weatherData.coordinates}</li>
+                  <li>{weatherData.description}</li>
+                  <li>Humidity: {weatherData.humidity}%</li>
+                  <li>Wind: {weatherData.wind} km/h</li>
+                  <li>{weatherData.coordinates}</li>
                 </ul>
               ) : (
                 search()
@@ -164,11 +159,11 @@ export default function ClimaApp(props) {
             </Grid>
 
             <Grid xs={3} sx={{ mt: 12, display: "inline-flex" }}>
-              <h3>19</h3>
+              <h3>{Math.round(weatherData.temperature)}</h3>
 
-              <h4>
+              <h5>
                 <a href="/">°C </a>|<a href="/">°F</a>{" "}
-              </h4>
+              </h5>
             </Grid>
 
             <Grid
