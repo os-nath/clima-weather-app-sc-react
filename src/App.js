@@ -8,6 +8,7 @@ import ClimaApp from "./ClimaApp.js";
 // import CssBaseline from "@mui/material/CssBaseline";
 
 function App() {
+
   return (
     <div className="App">
       <ClimaApp defaultCity="Perth" />

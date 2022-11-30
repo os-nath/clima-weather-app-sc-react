@@ -12,19 +12,33 @@ export default function ClimaApp(props) {
   const [city, setCity] = useState(props.defaultCity);
 
   function handleResponse(response) {
-    // console.log(response.data);
-
+    console.log(response.data);
     setWeatherData({
       ready: true,
-      coordinates: response.data.coord,
-      temperature: response.data.main.temp,
-      humidity: response.data.main.humidity,
-      date: new Date(response.data.dt * 1000),
-      description: response.data.weather[0].description,
-      icon: response.data.weather[0].icon,
-      wind: response.data.wind.speed,
-      city: response.data.name,
+      coordinates:
+        "Lat: " +
+        response.data.coordinates.latitude +
+        " / Lon: " +
+        response.data.coordinates.longitude,
+      temperature: 65,
+      humidity: 65,
+      date: new Date(response.data.time * 1000),
+      description: "yes",
+      icon: "",
+      wind: 45,
+      city: "Perth",
     });
+    // setWeatherData({
+    //   ready: true,
+    //   coordinates: response.data.coord,
+    //   temperature: response.data.main.temp,
+    //   humidity: response.data.main.humidity,
+    //   date: new Date(response.data.dt * 1000),
+    //   description: response.data.weather[0].description,
+    //   icon: response.data.weather[0].icon,
+    //   wind: response.data.wind.speed,
+    //   city: response.data.name,
+    // });
   }
 
   function handleSubmit(event) {
@@ -37,13 +51,16 @@ export default function ClimaApp(props) {
   }
 
   function search() {
-    const apiKey = "d122489789ce9e01ba81bb0f4a64028b";
+    // const apiKey = "cc3d7e1ef77d4969f21a8c0c2fdcd5e4";
+    // const units = "metric";
+    // const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+    // axios.get(apiUrl).then(handleResponse);
+    const apiKey = "c8ofb37351203d2abe70t35b1d4121da";
     const units = "metric";
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+    const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=${units}`;
     axios.get(apiUrl).then(handleResponse);
   }
 
-  // if (weatherData.ready) {
   return (
     <Card
       sx={{
@@ -110,8 +127,6 @@ export default function ClimaApp(props) {
                 Search
               </Button>
 
-         
-
               <Button
                 variant="contained"
                 sx={{
@@ -131,17 +146,21 @@ export default function ClimaApp(props) {
             </Grid>
 
             <Grid xs={5} sx={{ textAlign: "left" }}>
-              <h2>Itabira</h2>
-              <ul>
-                <li>
-                  <FormattedDate date={props.data.date} />
-                 
-                </li>
-                <li>Sunny</li>
-                <li>Precipitation: 15%</li>
-                <li>Humidity: {weatherData.humidity}</li>
-                <li>Wind: {weatherData.wind}</li>
-              </ul>
+              <h2>{city}</h2>
+              {weatherData.ready ? (
+                <ul>
+                  <li>
+                    <FormattedDate date={weatherData.date} />
+                  </li>
+                  <li>Sunny</li>
+                  <li>Precipitation: 15%</li>
+                  <li>Humidity: {weatherData.humidity}</li>
+                  <li>Wind: {weatherData.wind}</li>
+                  <li>Co-ords: {weatherData.coordinates}</li>
+                </ul>
+              ) : (
+                search()
+              )}
             </Grid>
 
             <Grid xs={3} sx={{ mt: 12, display: "inline-flex" }}>
