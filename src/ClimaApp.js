@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Button, Box, Grid, Card, CardContent, TextField, Icon } from "@mui/material";
+import { Button, Box, Grid, Card, CardContent, TextField } from "@mui/material";
+// import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 
 import axios from "axios";
 import "./ClimaApp.css";
@@ -84,7 +85,7 @@ export default function ClimaApp(props) {
                   },
                 }}
               >
-                <SearchRoundedIcon />
+                {/* <SearchRoundedIcon /> */}
               </Button>
 
               <Button
