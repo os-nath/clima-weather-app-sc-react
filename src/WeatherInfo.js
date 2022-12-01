@@ -1,6 +1,7 @@
 import React from "react";
 import { Box,Grid } from "@mui/material";
 import FormattedDate from "./FormattedDate";
+import WeatherIcon from "./WeatherIcon";
 
 export default function WeatherInfo(props) {
     var data = props.data;
@@ -17,20 +18,20 @@ export default function WeatherInfo(props) {
       return (
         <>
           <Grid xs={5} sx={{ textAlign: "left" }}>
-              <>
-                <h2>{data.city}</h2>
-                <h4>{data.country}</h4>
+            <>
+              <h2>{data.city}</h2>
+              <h4>{data.country}</h4>
 
-                <ul>
-                  <li>
-                    <FormattedDate date={data.date} />
-                  </li>
-                  <li>{data.description}</li>
-                  <li>Humidity: {data.humidity}%</li>
-                  <li>Wind: {data.wind} km/h</li>
-                  <li>{data.coordinates}</li>
-                </ul>
-              </>
+              <ul>
+                <li>
+                  <FormattedDate date={data.date} />
+                </li>
+                <li>{data.description}</li>
+                <li>Humidity: {data.humidity}%</li>
+                <li>Wind: {data.wind} km/h</li>
+                <li>{data.coordinates}</li>
+              </ul>
+            </>
           </Grid>
 
           <Grid xs={3} sx={{ mt: 12, display: "inline-flex" }}>
@@ -49,11 +50,9 @@ export default function WeatherInfo(props) {
               display: "flex-start",
             }}
           >
-            <img
-              src={data.icon}
-              alt={data.iconDescription}
-              height="150vh"
-            ></img>
+            <WeatherIcon code={props.data.icon} alt={props.data.iconDescription} sx={{ height: "150vh" }}/>
+
+            {/* <img src={data.icon_url ></img> */}
           </Grid>
         </>
       );

@@ -23,7 +23,8 @@ export default function ClimaApp(props) {
       humidity: response.data.temperature.humidity,
       date: new Date(response.data.time * 1000),
       description: response.data.condition.description,
-      icon: response.data.condition.icon_url,
+      icon: response.data.condition.icon,
+      icon_url: response.data.condition.icon_url,
       iconDescription: response.data.condition.icon,
       wind: response.data.wind.speed,
       city: response.data.city,
@@ -86,7 +87,7 @@ export default function ClimaApp(props) {
                   label="Type a city name"
                   type="search"
                   size="small"
-                  sx={{ width: "30vh" }}
+                  sx={{ width: "34vh" }}
                   onChange={handleCityChange}
                 />
                 <Button
@@ -103,7 +104,7 @@ export default function ClimaApp(props) {
                     width: 68,
 
                     "&:hover": {
-                      backgroundColor: "#E8B923",
+                      backgroundColor: "#DAA520",
                     },
                   }}
                 >
@@ -120,7 +121,7 @@ export default function ClimaApp(props) {
                     fontFamily: "Trebuchet MS",
                     width: 68,
                     "&:hover": {
-                      backgroundColor: "#E8B923",
+                      backgroundColor: "#DAA520",
                     },
                   }}
                 >
