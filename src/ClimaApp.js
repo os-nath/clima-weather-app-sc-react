@@ -33,6 +33,7 @@ export default function ClimaApp(props) {
   }
 
   function handleCityChange(event) {
+    console.log(event);
     setCity(event.target.value);
   }
 
@@ -73,12 +74,13 @@ export default function ClimaApp(props) {
                   display: "flex-start",
                 }}
               >
-                <img src="ClimaLogo.png" alt="appLogo" height="90vh"></img>
+                <img src="ClimaLogo.png" alt="appLogo" height="64vh"></img>
               </Grid>
               <Grid
                 xs={11}
                 sx={{
                   ml: 32,
+                  mt: -3,
                   display: "flex-start",
                 }}
               >
@@ -87,7 +89,7 @@ export default function ClimaApp(props) {
                   label="Type a city name"
                   type="search"
                   size="small"
-                  sx={{ width: "34vh" }}
+                  sx={{ width: "34vh", height: 36, p: 0 }}
                   onChange={handleCityChange}
                 />
                 <Button
@@ -97,11 +99,12 @@ export default function ClimaApp(props) {
                     textTransform: "capitalize",
                     color: "#000000",
                     bgcolor: "#4595D4",
-                    fontSize: 16,
+                    fontSize: 14,
                     fontFamily: "Trebuchet MS",
                     ml: 0.8,
                     mr: 0.8,
-                    width: 68,
+                    width: 38,
+                    height: 36,
 
                     "&:hover": {
                       backgroundColor: "#DAA520",
@@ -117,9 +120,10 @@ export default function ClimaApp(props) {
                     textTransform: "capitalize",
                     color: "#000000",
                     bgcolor: "rgb(114, 189, 114)",
-                    fontSize: 16,
+                    fontSize: 14,
                     fontFamily: "Trebuchet MS",
-                    width: 68,
+                    width: 30,
+                    height: 36,
                     "&:hover": {
                       backgroundColor: "#DAA520",
                     },
