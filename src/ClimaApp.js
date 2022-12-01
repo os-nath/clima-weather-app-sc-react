@@ -5,9 +5,12 @@ import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
 
 import axios from "axios";
 import "./ClimaApp.css";
-import FormattedDate from "./FormattedDate";
+
+import WeatherInfo from "./WeatherInfo";
+
 
 export default function ClimaApp(props) {
+  console.log(props);
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
 
@@ -43,10 +46,7 @@ export default function ClimaApp(props) {
   }
 
   function search() {
-    // const apiKey = "cc3d7e1ef77d4969f21a8c0c2fdcd5e4";
-    // const units = "metric";
-    // const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-    // axios.get(apiUrl).then(handleResponse);
+    console.log(city)
     const apiKey = "c8ofb37351203d2abe70t35b1d4121da";
     const units = "metric";
     const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=${units}`;
@@ -140,46 +140,9 @@ export default function ClimaApp(props) {
               </Button>
             </Grid>
 
-            <Grid xs={5} sx={{ textAlign: "left" }}>
-              <h2>{city}</h2>
-              <h4>{weatherData.country}</h4>
-              {weatherData.ready ? (
-                <ul>
-                  <li>
-                    <FormattedDate date={weatherData.date} />
-                  </li>
-                  <li>{weatherData.description}</li>
-                  <li>Humidity: {weatherData.humidity}%</li>
-                  <li>Wind: {weatherData.wind} km/h</li>
-                  <li>{weatherData.coordinates}</li>
-                </ul>
-              ) : (
-                search()
-              )}
-            </Grid>
+{}
+        <WeatherInfo data={weatherData} searchfunction={search}/>
 
-            <Grid xs={3} sx={{ mt: 12, display: "inline-flex" }}>
-              <h3>{Math.round(weatherData.temperature)}</h3>
-
-              <h5>
-                <a href="/">°C </a>|<a href="/">°F</a>{" "}
-              </h5>
-            </Grid>
-
-            <Grid
-              xs={1}
-              sx={{
-                mt: 10,
-                ml: 3,
-                display: "flex-start",
-              }}
-            >
-              <img
-                src={weatherData.icon}
-                alt={weatherData.iconDescription}
-                height="140vh"
-              ></img>
-            </Grid>
           </Grid>
         </Box>
       </CardContent>

@@ -8,7 +8,7 @@ import ClimaApp from "./ClimaApp.js";
 // import CssBaseline from "@mui/material/CssBaseline";
 
 function App() {
-
+// add Geolocation function to get Lat and Long
   return (
     <div className="App">
       <ClimaApp defaultCity="Perth" />
