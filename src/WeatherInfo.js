@@ -1,12 +1,11 @@
 import React from "react";
-import { Box,Grid,CircularProgress } from "@mui/material";
-
+import { Box,Grid } from "@mui/material";
 import FormattedDate from "./FormattedDate";
 
 export default function WeatherInfo(props) {
     var data = props.data;
     var search = props.searchfunction;
-    console.log(data.ready);
+   
     if (!data.ready) {
         search();
         return (
