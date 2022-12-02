@@ -30,7 +30,7 @@ export default function FormattedDate(props) {
    "Nov",
    "Dec",
  ];
-
+ console.log(props.date.getTimezoneOffset());
  let month = months[monthIndex];
 
  let currentYear = props.date.getFullYear();
