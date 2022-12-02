@@ -39,10 +39,27 @@ export default function ClimaApp(props) {
   }
 
   function search() {
-    const apiKey = "c8ofb37351203d2abe70t35b1d4121da";
-    const units = "metric";
-    const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=${units}`;
-    axios.get(apiUrl).then(handleResponse);
+    // const apiKey = "c8ofb37351203d2abe70t35b1d4121da";
+    // const units = "metric";
+    // const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=${units}`;
+    // axios.get(apiUrl).then(handleResponse);
+    var jsondata = {
+      data: {
+        coordinates: { longitude: 35, latitude: 115 },
+        temperature: { current: 25 , "humidity": 25},
+        time: new Date(1669967252),
+        condition: {
+          description: "filler",
+          icon: "picture.jpg",
+          icon_url: "/picture.jpg",
+          iconDescription: "its a picture",
+        },
+        wind: {"speed": 45},
+        city: city,
+        country: "Aus",
+      },
+    };
+    handleResponse(jsondata);
   }
 
   if (weatherData.ready) {
