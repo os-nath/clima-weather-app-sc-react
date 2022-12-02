@@ -36,11 +36,7 @@ export default function WeatherInfo(props) {
 
           <WeatherTemperature celsius={props.data.temperature} />
 
-          {/* <h3>{Math.round(data.temperature)}</h3>
-
-            <h5>
-              <a href="/">°C </a>|<a href="/">°F</a>{" "}
-            </h5> */}
+         
         </Grid>
 
         <Grid
@@ -57,7 +53,7 @@ export default function WeatherInfo(props) {
             sx={{ height: "150vh" }}
           />
 
-          {/* <img src={data.icon_url ></img> */}
+         
         </Grid>
       </>
     );

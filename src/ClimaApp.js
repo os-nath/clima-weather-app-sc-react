@@ -5,6 +5,7 @@ import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
 import axios from "axios";
 import "./ClimaApp.css";
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 
 export default function ClimaApp(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -135,6 +136,7 @@ export default function ClimaApp(props) {
 
               <WeatherInfo data={weatherData} searchfunction={search} />
             </Grid>
+            <WeatherForecast />
           </Box>
         </CardContent>
       </Card>
