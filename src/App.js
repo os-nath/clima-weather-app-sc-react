@@ -19,13 +19,13 @@ function App() {
       <br />
       <br />
       <footer>
-        Open-sourced{" "}
+        Open-sourced on{" "}
         <a
           href="https://github.com/os-nath/clima-weather-app-sc-react"
           target="_blank"
           rel="noopener noreferrer"
         >
-          code{" "}
+          GitHub{" "}
         </a>{" "}
         by
         <a
@@ -36,7 +36,7 @@ function App() {
           {" "}
           Nath Soares
         </a>{" "}
-        hosted on
+         and hosted on
         <a
           href="https://637f1f9f48c65532b6f796d4--wondrous-pothos-41872e.netlify.app/"
           target="_blank"
