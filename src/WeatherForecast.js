@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Grid, Paper, styled } from "@mui/material";
 import WeatherIcon from "./WeatherIcon";
 import "./WeatherForecast.css";
+ import axios from "axios";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -9,10 +10,13 @@ const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(1),
   textAlign: "center",
   color: "theme.palette.text.secondary",
-
 }));
 
-export default function WeatherForecast() {
+export default function WeatherForecast(props) {
+
+ console.log(props);
+
+
   return (
     <Box sx={{ flexGrow: 1, p: 6 }}>
       <Grid container spacing={3}>

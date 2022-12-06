@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Box, Grid, Card, CardContent, TextField } from "@mui/material";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
-// import axios from "axios";
+import axios from "axios";
 import "./ClimaApp.css";
 import WeatherInfo from "./WeatherInfo";
 import WeatherForecast from "./WeatherForecast";
@@ -10,64 +10,68 @@ import WeatherForecast from "./WeatherForecast";
 export default function ClimaApp(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
+  const [forecastData, setForecastData] = useState({ ready: false });
 
   function handleResponse(response) {
-   
-  setWeatherData({
-    ready: true,
-    coordinates:
-      "Lat Long: " +
-      response.data.coordinates.latitude +
-      ", " +
-      response.data.coordinates.longitude,
-    temperature: response.data.daily[0].temperature.day,
-    humidity: response.data.daily[0].temperature.humidity,
-    date: new Date(response.data.daily[0].time * 1000),
-    description: response.data.daily[0].condition.description,
-    icon: response.data.daily[0].condition.icon,
-    icon_url: response.data.daily[0].condition.icon_url,
-    iconDescription: response.data.daily[0].condition.description,
-    wind: response.data.daily[0].wind.speed,
-    city: response.data.city,
-    country: response.data.country,
-  });
+    setWeatherData({
+      ready: true,
+      coordinates: response.data.coordinates,
+      temperature: response.data.daily[0].temperature.day,
+      humidity: response.data.daily[0].temperature.humidity,
+      date: new Date(response.data.daily[0].time * 1000),
+      description: response.data.daily[0].condition.description,
+      icon: response.data.daily[0].condition.icon,
+      icon_url: response.data.daily[0].condition.icon_url,
+      iconDescription: response.data.daily[0].condition.description,
+      wind: response.data.daily[0].wind.speed,
+      city: response.data.city,
+      country: response.data.country,
+    });
+  }
+
+  function handle1Response(response) {
+    setForecastData({
+      ready: true,
+      coordinates: response.data.coordinates,
+      temperature: response.data.daily[1].temperature.day,
+      humidity: response.data.daily[1].temperature.humidity,
+      date: new Date(response.data.daily[1].time * 1000),
+      description: response.data.daily[1].condition.description,
+      icon: response.data.daily[1].condition.icon,
+      icon_url: response.data.daily[1].condition.icon_url,
+      iconDescription: response.data.daily[1].condition.description,
+      wind: response.data.daily[1].wind.speed,
+      city: response.data.city,
+      country: response.data.country,
+    });
   }
 
   function handleCityChange(event) {
-    
     setCity(event.target.value);
   }
 
   function search() {
+    const apiKey = "c8ofb37351203d2abe70t35b1d4121da";
+    const units = "metric";
+    // var apiUrlForecast = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=${units}`;
+    // axios.get(apiUrlForecast).then(handleResponse);
+
+    // console.log(response);
     // const apiKey = "c8ofb37351203d2abe70t35b1d4121da";
     // const units = "metric";
-    // const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=${units}`;
-    // axios.get(apiUrl).then(handleResponse);
-    // const apiUrlForecast = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
-    // axios.get(apiUrlForecast).then((resp) => console.log(resp));
-    // var jsondata = {
-    //   data: {
-    //     coordinates: { longitude: 35, latitude: 115 },
-    //     temperature: { current: 25, humidity: 25 },
-    //     // time: new Date(1669967252),
-    //     condition: {
-    //       description: "filler",
-    //       icon: "broken-clouds-day",
-    //       icon_url:
-    //         "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png",
-    //       iconDescription: "its a picture",
-    //     },
-    //     // wind: { speed: 45 },
-    //     // city: city,
-    //     // country: "Aus",
-    //   },
-    // };
+    // var apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${response.data.coordinates.longitude}&lat=${response.data.coordinates.latitude}&key=${apiKey}&units=${units}`;
+
+    // axios.get(apiUrl).then(handle1Response);
+
 
     var forecastdata = {
       data: {
         city: city,
         country: "Australia",
-        coordinates: { longitude: 115.8605801, latitude: -31.9558964 },
+        coordinates: {
+          longitude: 115.8605801,
+          latitude: -31.9558964,
+        },
         daily: [
           {
             condition: {
@@ -185,9 +189,8 @@ export default function ClimaApp(props) {
       },
     };
     handleResponse(forecastdata);
+
   }
-
-
 
   if (weatherData.ready) {
     return (
@@ -281,9 +284,9 @@ export default function ClimaApp(props) {
                 </Button>
               </Grid>
 
-              <WeatherInfo data={weatherData} searchfunction={search} />
+              <WeatherInfo data={weatherData} />
+              <WeatherForecast coordinates={weatherData.coordinates} />
             </Grid>
-            <WeatherForecast />
           </Box>
         </CardContent>
       </Card>

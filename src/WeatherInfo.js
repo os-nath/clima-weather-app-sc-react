@@ -6,10 +6,10 @@ import WeatherTemperature from "./WeatherTemperature";
 
 export default function WeatherInfo(props) {
   var data = props.data;
-  var search = props.searchfunction;
+ 
 
   if (!data.ready) {
-    search();
+
     return <Box>Please enter your city</Box>;
   } else {
     return (
@@ -26,7 +26,7 @@ export default function WeatherInfo(props) {
               <li>{data.description}</li>
               <li>Humidity: {data.humidity}%</li>
               <li>Wind: {data.wind} km/h</li>
-              <li>{data.coordinates}</li>
+              <li>Lat:{data.coordinates.latitude}, Lon:{data.coordinates.longitude}</li>
             </ul>
           </>
         </Grid>
