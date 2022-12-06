@@ -21,23 +21,25 @@ export default function WeatherForecast() {
             sx={{
               bgcolor: "#f2f2f9",
               boxShadow: "2px 7px 8px 2px rgb(0 0 0 / 20%)",
+              color: "#5a5c5e",
+              fontFamily: "Trebuchet MS",
             }}
           >
             Um
             <WeatherIcon
               className="WeatherForecast-icon"
               code="thunderstorm-day"
+              sx={{ mt: 5 }}
             />
             <Item
               xs={6}
-              className="minTempCard"
               sx={{
                 width: "30%",
                 p: 0,
                 m: 0.25,
                 display: "inline-flex",
                 justifyContent: "center",
-                fontWeight: 600,
+                color: "#5a5c5e",
                 bgcolor: "#f2f2f9",
               }}
             >
@@ -51,6 +53,8 @@ export default function WeatherForecast() {
                 m: 0.25,
                 display: "inline-flex",
                 justifyContent: "center",
+                fontWeight: 600,
+                color: "#5a5c5e",
                 bgcolor: "#f2f2f9",
               }}
             >
@@ -64,6 +68,8 @@ export default function WeatherForecast() {
             sx={{
               bgcolor: "#f2f2f9",
               boxShadow: "2px 7px 8px 2px rgb(0 0 0 / 20%)",
+              color: "#5a5c5e",
+              fontFamily: "Trebuchet MS",
             }}
           >
             Dois
@@ -76,7 +82,7 @@ export default function WeatherForecast() {
                 m: 0.25,
                 display: "inline-flex",
                 justifyContent: "center",
-                fontWeight: 600,
+                color: "#5a5c5e",
                 bgcolor: "#f2f2f9",
               }}
             >
@@ -90,6 +96,8 @@ export default function WeatherForecast() {
                 m: 0.25,
                 display: "inline-flex",
                 justifyContent: "center",
+                fontWeight: 600,
+                color: "#5a5c5e",
                 bgcolor: "#f2f2f9",
               }}
             >
@@ -103,6 +111,8 @@ export default function WeatherForecast() {
             sx={{
               bgcolor: "#f2f2f9",
               boxShadow: "2px 7px 8px 2px rgb(0 0 0 / 20%)",
+              color: "#5a5c5e",
+              fontFamily: "Trebuchet MS",
             }}
           >
             Tres
@@ -115,7 +125,7 @@ export default function WeatherForecast() {
                 m: 0.25,
                 display: "inline-flex",
                 justifyContent: "center",
-                fontWeight: 600,
+                color: "#5a5c5e",
                 bgcolor: "#f2f2f9",
               }}
             >
@@ -129,6 +139,8 @@ export default function WeatherForecast() {
                 m: 0.25,
                 display: "inline-flex",
                 justifyContent: "center",
+                fontWeight: 600,
+                color: "#5a5c5e",
                 bgcolor: "#f2f2f9",
               }}
             >
@@ -142,6 +154,8 @@ export default function WeatherForecast() {
             sx={{
               bgcolor: "#f2f2f9",
               boxShadow: "2px 7px 8px 2px rgb(0 0 0 / 20%)",
+              color: "#5a5c5e",
+              fontFamily: "Trebuchet MS",
             }}
           >
             Quatro
@@ -154,7 +168,7 @@ export default function WeatherForecast() {
                 m: 0.25,
                 display: "inline-flex",
                 justifyContent: "center",
-                fontWeight: 600,
+                color: "#5a5c5e",
                 bgcolor: "#f2f2f9",
               }}
             >
@@ -168,6 +182,8 @@ export default function WeatherForecast() {
                 m: 0.25,
                 display: "inline-flex",
                 justifyContent: "center",
+                fontWeight: 600,
+                color: "#5a5c5e",
                 bgcolor: "#f2f2f9",
               }}
             >
@@ -181,6 +197,8 @@ export default function WeatherForecast() {
             sx={{
               bgcolor: "#f2f2f9",
               boxShadow: "2px 7px 8px 2px rgb(0 0 0 / 20%)",
+              color: "#5a5c5e",
+              fontFamily: "Trebuchet MS",
             }}
           >
             Cinco
@@ -193,7 +211,7 @@ export default function WeatherForecast() {
                 m: 0.25,
                 display: "inline-flex",
                 justifyContent: "center",
-                fontWeight: 600,
+                color: "#5a5c5e",
                 bgcolor: "#f2f2f9",
               }}
             >
@@ -207,6 +225,8 @@ export default function WeatherForecast() {
                 m: 0.25,
                 display: "inline-flex",
                 justifyContent: "center",
+                fontWeight: 600,
+                color: "#5a5c5e",
                 bgcolor: "#f2f2f9",
               }}
             >
@@ -219,6 +239,8 @@ export default function WeatherForecast() {
             sx={{
               bgcolor: "#f2f2f9",
               boxShadow: "2px 7px 8px 2px rgb(0 0 0 / 20%)",
+              color: "#5a5c5e",
+              fontFamily: "Trebuchet MS",
             }}
           >
             Seis
@@ -231,7 +253,7 @@ export default function WeatherForecast() {
                 m: 0.25,
                 display: "inline-flex",
                 justifyContent: "center",
-                fontWeight: 600,
+                color: "#5a5c5e",
                 bgcolor: "#f2f2f9",
               }}
             >
@@ -245,6 +267,8 @@ export default function WeatherForecast() {
                 m: 0.25,
                 display: "inline-flex",
                 justifyContent: "center",
+                fontWeight: 600,
+                color: "#5a5c5e",
                 bgcolor: "#f2f2f9",
               }}
             >
