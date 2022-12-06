@@ -14,7 +14,7 @@ export default function WeatherInfo(props) {
   } else {
     return (
       <>
-        <Grid xs={5} sx={{ textAlign: "left" }}>
+        <Grid item xs={5} sx={{ textAlign: "left" }}>
           <>
             <h2>{data.city}</h2>
             <h4>{data.country}</h4>
@@ -31,15 +31,11 @@ export default function WeatherInfo(props) {
           </>
         </Grid>
 
-        <Grid xs={3} sx={{ mt: 12, display: "inline-flex" }}>
-
-
+        <Grid item xs={3} sx={{ mt: 12, display: "inline-flex" }}>
           <WeatherTemperature celsius={props.data.temperature} />
-
-         
         </Grid>
 
-        <Grid
+        <Grid item
           xs={1}
           sx={{
             mt: 10,
@@ -52,8 +48,6 @@ export default function WeatherInfo(props) {
             alt={props.data.iconDescription}
             sx={{ height: "150vh" }}
           />
-
-         
         </Grid>
       </>
     );
