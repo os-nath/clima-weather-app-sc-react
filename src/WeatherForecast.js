@@ -17,7 +17,12 @@ export default function WeatherForecast() {
     <Box sx={{ flexGrow: 1, p: 6 }}>
       <Grid container spacing={3}>
         <Grid item xs>
-          <Item>
+          <Item
+            sx={{
+              bgcolor: "#f2f2f9",
+              boxShadow: "2px 7px 8px 2px rgb(0 0 0 / 20%)",
+            }}
+          >
             Um
             <WeatherIcon
               className="WeatherForecast-icon"
@@ -25,6 +30,7 @@ export default function WeatherForecast() {
             />
             <Item
               xs={6}
+              className="minTempCard"
               sx={{
                 width: "30%",
                 p: 0,
@@ -32,6 +38,7 @@ export default function WeatherForecast() {
                 display: "inline-flex",
                 justifyContent: "center",
                 fontWeight: 600,
+                bgcolor: "#f2f2f9",
               }}
             >
               10°
@@ -44,6 +51,7 @@ export default function WeatherForecast() {
                 m: 0.25,
                 display: "inline-flex",
                 justifyContent: "center",
+                bgcolor: "#f2f2f9",
               }}
             >
               19°
@@ -52,7 +60,12 @@ export default function WeatherForecast() {
         </Grid>
 
         <Grid item xs>
-          <Item>
+          <Item
+            sx={{
+              bgcolor: "#f2f2f9",
+              boxShadow: "2px 7px 8px 2px rgb(0 0 0 / 20%)",
+            }}
+          >
             Dois
             <WeatherIcon code="clear-sky-night" />
             <Item
@@ -64,6 +77,7 @@ export default function WeatherForecast() {
                 display: "inline-flex",
                 justifyContent: "center",
                 fontWeight: 600,
+                bgcolor: "#f2f2f9",
               }}
             >
               8°
@@ -76,6 +90,7 @@ export default function WeatherForecast() {
                 m: 0.25,
                 display: "inline-flex",
                 justifyContent: "center",
+                bgcolor: "#f2f2f9",
               }}
             >
               16°
@@ -84,7 +99,12 @@ export default function WeatherForecast() {
         </Grid>
 
         <Grid item xs>
-          <Item>
+          <Item
+            sx={{
+              bgcolor: "#f2f2f9",
+              boxShadow: "2px 7px 8px 2px rgb(0 0 0 / 20%)",
+            }}
+          >
             Tres
             <WeatherIcon code="mist-day" />
             <Item
@@ -96,6 +116,7 @@ export default function WeatherForecast() {
                 display: "inline-flex",
                 justifyContent: "center",
                 fontWeight: 600,
+                bgcolor: "#f2f2f9",
               }}
             >
               7°
@@ -108,6 +129,7 @@ export default function WeatherForecast() {
                 m: 0.25,
                 display: "inline-flex",
                 justifyContent: "center",
+                bgcolor: "#f2f2f9",
               }}
             >
               14°
@@ -116,7 +138,12 @@ export default function WeatherForecast() {
         </Grid>
 
         <Grid item xs>
-          <Item>
+          <Item
+            sx={{
+              bgcolor: "#f2f2f9",
+              boxShadow: "2px 7px 8px 2px rgb(0 0 0 / 20%)",
+            }}
+          >
             Quatro
             <WeatherIcon code="snow-night" />
             <Item
@@ -128,6 +155,7 @@ export default function WeatherForecast() {
                 display: "inline-flex",
                 justifyContent: "center",
                 fontWeight: 600,
+                bgcolor: "#f2f2f9",
               }}
             >
               -9°
@@ -140,6 +168,7 @@ export default function WeatherForecast() {
                 m: 0.25,
                 display: "inline-flex",
                 justifyContent: "center",
+                bgcolor: "#f2f2f9",
               }}
             >
               0°
@@ -148,7 +177,12 @@ export default function WeatherForecast() {
         </Grid>
 
         <Grid item xs>
-          <Item>
+          <Item
+            sx={{
+              bgcolor: "#f2f2f9",
+              boxShadow: "2px 7px 8px 2px rgb(0 0 0 / 20%)",
+            }}
+          >
             Cinco
             <WeatherIcon code="scattered-clouds-night" />
             <Item
@@ -160,6 +194,7 @@ export default function WeatherForecast() {
                 display: "inline-flex",
                 justifyContent: "center",
                 fontWeight: 600,
+                bgcolor: "#f2f2f9",
               }}
             >
               11°
@@ -172,6 +207,7 @@ export default function WeatherForecast() {
                 m: 0.25,
                 display: "inline-flex",
                 justifyContent: "center",
+                bgcolor: "#f2f2f9",
               }}
             >
               19°
@@ -179,7 +215,12 @@ export default function WeatherForecast() {
           </Item>
         </Grid>
         <Grid item xs>
-          <Item>
+          <Item
+            sx={{
+              bgcolor: "#f2f2f9",
+              boxShadow: "2px 7px 8px 2px rgb(0 0 0 / 20%)",
+            }}
+          >
             Seis
             <WeatherIcon code="clear-sky-day" />
             <Item
@@ -191,6 +232,7 @@ export default function WeatherForecast() {
                 display: "inline-flex",
                 justifyContent: "center",
                 fontWeight: 600,
+                bgcolor: "#f2f2f9",
               }}
             >
               18°
@@ -203,6 +245,7 @@ export default function WeatherForecast() {
                 m: 0.25,
                 display: "inline-flex",
                 justifyContent: "center",
+                bgcolor: "#f2f2f9",
               }}
             >
               32°

@@ -65,13 +65,14 @@ export default function ClimaApp(props) {
   if (weatherData.ready) {
     return (
       <Card
+        className="mainAppCard"
         sx={{
           width: "100vh",
           height: "80vh",
           display: "inline-flex",
           mt: 6,
           mb: 0,
-          bgcolor: "#e2dee4",
+          bgcolor: "#f2f2f9",
         }}
       >
         <CardContent sx={{ p: 3, m: 0, display: "inline-flex" }}>
