@@ -55,12 +55,10 @@ export default function ClimaApp(props) {
     const units = "metric";
     // var apiUrlForecast = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=${units}`;
     // axios.get(apiUrlForecast).then(handleResponse);
-
     // console.log(response);
     // const apiKey = "c8ofb37351203d2abe70t35b1d4121da";
     // const units = "metric";
     // var apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${response.data.coordinates.longitude}&lat=${response.data.coordinates.latitude}&key=${apiKey}&units=${units}`;
-
     // axios.get(apiUrl).then(handle1Response);
 
 

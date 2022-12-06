@@ -3,12 +3,21 @@ import React from "react";
 import "./ClimaApp.css";
 import ClimaApp from "./ClimaApp.js";
 
-
-
 // import CssBaseline from "@mui/material/CssBaseline";
 
-function App() {
+function App(props) {
+  
 // add Geolocation function to get Lat and Long and pass the props to ClimaApp instead of defaultCity
+
+
+
+  function geoLocation() {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      console.log("Latitude is :", position.coords.latitude);
+      console.log("Longitude is :", position.coords.longitude);
+    }
+
+
   return (
     <div className="App">
       <ClimaApp defaultCity="Perth" />
