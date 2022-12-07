@@ -130,10 +130,15 @@ export default function ClimaApp(props) {
             </Grid>
 
             <WeatherInfo data={weatherData} />
-            <WeatherForecast coordinates={weatherData.coordinates} />
+            <WeatherForecast
+              coordinates={weatherData.coordinates}
+              
+            />
           </Grid>
         </Box>
       </CardContent>
     </Card>
   );
 }
+
+// daily={response && response.daily} quando ta inicializando vem vazio, tem que enxer
