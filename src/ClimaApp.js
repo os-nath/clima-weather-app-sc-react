@@ -129,7 +129,7 @@ export default function ClimaApp(props) {
             </Grid>
 
             <WeatherInfo data={weatherData} />
-            <WeatherForecast coordinates={weatherData.coordinates} />
+            <WeatherForecast weatherData={response}/>
           </Grid>
         </Box>
       </CardContent>
