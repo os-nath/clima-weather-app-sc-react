@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button, Box, Grid, Card, CardContent, TextField } from "@mui/material";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
-import axios from "axios";
+// import axios from "axios";
 import "./ClimaApp.css";
 import WeatherInfo from "./WeatherInfo";
 import WeatherForecast from "./WeatherForecast";
@@ -89,56 +89,50 @@ export default function ClimaApp(props) {
                 onChange={handleCityChange}
               />
               <Button
-                variant="contained"
                 onClick={search}
                 sx={{
                   textTransform: "capitalize",
                   color: "#000000",
-                  bgcolor: "#4595D4",
+                  bgcolor: "transparent",
                   fontSize: 14,
+
                   fontFamily: "Trebuchet MS",
                   ml: 0.8,
                   mr: 0.8,
-                  width: 38,
+                  width: 30,
                   height: 36,
 
                   "&:hover": {
-                    backgroundColor: "#DAA520",
+                    backgroundColor: "rgb(114, 189, 114)",
                   },
                 }}
               >
-                <SearchRoundedIcon />
+                <SearchRoundedIcon sx={{ color: "#024e88" }} />
               </Button>
 
               <Button
-                variant="contained"
                 sx={{
                   textTransform: "capitalize",
                   color: "#000000",
-                  bgcolor: "rgb(114, 189, 114)",
+                  bgcolor: "transparent",
                   fontSize: 14,
                   fontFamily: "Trebuchet MS",
                   width: 30,
                   height: 36,
                   "&:hover": {
-                    backgroundColor: "#DAA520",
+                    backgroundColor: "rgb(114, 189, 114)",
                   },
                 }}
               >
-                <PlaceOutlinedIcon />
+                <PlaceOutlinedIcon sx={{ color: "#024e88" }} />
               </Button>
             </Grid>
 
             <WeatherInfo data={weatherData} />
-            <WeatherForecast
-              coordinates={weatherData.coordinates}
-              
-            />
+            <WeatherForecast coordinates={weatherData.coordinates} />
           </Grid>
         </Box>
       </CardContent>
     </Card>
   );
 }
-
-

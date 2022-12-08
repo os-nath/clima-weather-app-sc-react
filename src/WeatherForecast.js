@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Box, Grid, Paper, styled } from "@mui/material";
 import WeatherIcon from "./WeatherIcon";
+import get from "lodash.get";
+import { useWeatherData } from "./hooks/useWeatherData";
 import "./WeatherForecast.css";
-// import axios from "axios";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -13,10 +14,9 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function WeatherForecast(props) {
-  let [loaded, setLoaded] = useState(false);
-  let [forecast, setForecast] = useState(null);
-
-  
+  const [loaded, setLoaded] = useState(false);
+  const [forecast, setForecast] = useState(undefined);
+  const response = useWeatherData(forecast);
 
   useEffect(() => {
     handleResponse(props.responseData);
@@ -26,10 +26,22 @@ export default function WeatherForecast(props) {
     setForecast(props.responseData);
     setLoaded(true);
   }
+
+  function displayForecast() {
+    setForecast(forecast);
+  }
+
+  const getDailyForecast = get(()response, "daily.temperature.minimum", "default");
+ 
   if (loaded) {
     console.log(forecast);
     return (
-      <Box sx={{ flexGrow: 1, p: 6 }}>
+      <Box
+        sx={{
+          flexGrow: 1,
+          p: 6,
+        }}
+      >
         <Grid container spacing={3}>
           <Grid item xs>
             <Item
@@ -58,6 +70,8 @@ export default function WeatherForecast(props) {
                   bgcolor: "#f2f2f9",
                 }}
               >
+                <useWeatherData daily={response.daily[0].temperature.minimum} />
+                {/* daily={response.daily.temperature.minimum} */}
                 10°
               </Item>
               <Item
@@ -298,3 +312,7 @@ export default function WeatherForecast(props) {
     return <div></div>;
   }
 }
+
+// criar const para path and default value?
+
+ // get(response, "daily.temperature.minimum");
