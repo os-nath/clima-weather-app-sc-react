@@ -141,4 +141,4 @@ export default function ClimaApp(props) {
   );
 }
 
-// daily={response && response.daily} quando ta inicializando vem vazio, tem que enxer
+

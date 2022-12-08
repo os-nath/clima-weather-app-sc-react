@@ -4,6 +4,8 @@ import "./ClimaApp.css";
 import ClimaApp from "./ClimaApp.js";
 import { useWeatherData } from "./hooks/useWeatherData";
 
+import { Box, CircularProgress } from "@mui/material";
+
 // add Geolocation function to get Lat and Long and pass the props to ClimaApp instead of defaultCity
 // import CssBaseline from "@mui/material/CssBaseline";
 
@@ -176,7 +178,18 @@ function App() {
       </div>
     );
   } else {
-    return "Loading...";
+    return (
+      <Box
+        sx={{
+          mt: 50,
+          display: "flex",
+          justifyContent: "center",
+          color: "#024e88",
+        }}
+      >
+        <CircularProgress />
+      </Box>
+    );
   }
 }
 export default App;
