@@ -38,6 +38,10 @@ export default function ClimaApp(props) {
     setSearchCity(city);
   }
 
+  function searchByLocation() {
+    setSearchCity(undefined);
+  }
+
   return (
     <Card
       className="mainAppCard"
@@ -111,6 +115,7 @@ export default function ClimaApp(props) {
               </Button>
 
               <Button
+                onClick={searchByLocation}
                 sx={{
                   textTransform: "capitalize",
                   color: "#000000",
@@ -129,7 +134,7 @@ export default function ClimaApp(props) {
             </Grid>
 
             <WeatherInfo data={weatherData} />
-            <WeatherForecast weatherData={response}/>
+            <WeatherForecast weatherData={response} />
           </Grid>
         </Box>
       </CardContent>

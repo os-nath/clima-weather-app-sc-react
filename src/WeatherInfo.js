@@ -48,6 +48,7 @@ export default function WeatherInfo(props) {
             alt={props.data.iconDescription}
             sx={{ height: "150vh" }}
           />
+          console.log(props);
         </Grid>
       </>
     );

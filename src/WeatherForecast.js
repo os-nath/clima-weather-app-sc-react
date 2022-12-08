@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Box, Grid, Paper, styled } from "@mui/material";
 import WeatherIcon from "./WeatherIcon";
 import get from "lodash/get";
-import { useWeatherData } from "./hooks/useWeatherData";
 import "./WeatherForecast.css";
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -14,6 +13,7 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function WeatherForecast(props) {
+  console.log(props);
   const [loaded, setLoaded] = useState(false);
   const response = props.weatherData;
   const forecast = get(response, "daily", []);
@@ -37,6 +37,21 @@ export default function WeatherForecast(props) {
               get(daily, "temperature.maximum", "default")
             );
 
+            const showIcon = get(daily, "condition.icon", "default");
+            const date = new Date(get(daily, "time", 0) * 1000);
+
+            const day = date.getDay();
+            const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+            const weekDay = days[day];
+
+            console.log("oiii", {
+              daily,
+              weekDay,
+              showIcon,
+              date,
+              day,
+            });
+
             return (
               <Grid item xs key={index}>
                 <Item
@@ -47,10 +62,12 @@ export default function WeatherForecast(props) {
                     fontFamily: "Trebuchet MS",
                   }}
                 >
-                  Um
+                  {`\u00A0`}
+                  {weekDay}
+                  {`\u00A0`}
                   <WeatherIcon
                     className="WeatherForecast-icon"
-                    code="thunderstorm-day"
+                    code={showIcon}
                     sx={{ mt: 5 }}
                   />
                   <Item
