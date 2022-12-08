@@ -1,19 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import memoize from "lodash.memoize";
 
 const API_endpoint = `https://api.shecodes.io/weather/v1/forecast`;
 const apiKey = "c8ofb37351203d2abe70t35b1d4121da";
 const units = "metric";
-
-function memoize(fn) {
-  let result;
-  return (...args) => {
-    if (!result) {
-      result = fn(...args);
-    }
-    return result;
-  };
-}
 
 const getCurrentPosition = () =>
   new Promise((resolve, reject) =>
