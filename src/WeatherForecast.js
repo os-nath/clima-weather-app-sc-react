@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Box, Grid, Paper, styled } from "@mui/material";
 import WeatherIcon from "./WeatherIcon";
 import get from "lodash/get";
@@ -13,12 +13,9 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function WeatherForecast(props) {
-  console.log(props);
-  const [loaded, setLoaded] = useState(false);
   const response = props.weatherData;
   const forecast = get(response, "daily", []);
 
-  console.log(forecast);
   return (
     <Box
       sx={{
@@ -38,7 +35,6 @@ export default function WeatherForecast(props) {
             );
 
             const showIcon = get(daily, "condition.icon", "default");
-            // date is a moment object
             var weekDay = moment
               .utc(get(daily, "time", 0) * 1000)
               .format("dddd")
