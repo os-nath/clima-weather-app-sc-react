@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Button, Box, Grid, Card, CardContent, TextField } from "@mui/material";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
-// import axios from "axios";
 import "./ClimaApp.css";
 import WeatherInfo from "./WeatherInfo";
 import WeatherForecast from "./WeatherForecast";
@@ -21,7 +20,6 @@ export default function ClimaApp(props) {
         coordinates: response.coordinates,
         temperature: response.daily[0].temperature.day,
         humidity: response.daily[0].temperature.humidity,
-        // date: new Date(response.daily[0].time * 1000),
         date: moment.utc(response.daily[0].time * 1000),
         description: response.daily[0].condition.description,
         icon: response.daily[0].condition.icon,
