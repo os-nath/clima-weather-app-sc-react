@@ -41,13 +41,14 @@ export default function WeatherForecast(props) {
               .substring(0, 3);
 
             return (
-              <Grid item xs key={index}>
+              <Grid item xs key={index} sx={{pt: 0}}>
                 <Item
                   sx={{
                     bgcolor: "#f2f2f9",
                     boxShadow: "2px 7px 8px 2px rgb(0 0 0 / 20%)",
                     color: "#5a5c5e",
                     fontFamily: "Trebuchet MS",
+                    
                   }}
                 >
                   {weekDay}
@@ -93,6 +94,7 @@ export default function WeatherForecast(props) {
               </Grid>
             );
           }
+          return null;
         })}
       </Grid>
     </Box>

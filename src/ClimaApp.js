@@ -1,5 +1,14 @@
 import React, { useState } from "react";
-import { Button, Box, Grid, Card, CardContent, TextField } from "@mui/material";
+import {
+  Button,
+  Box,
+  Grid,
+  Card,
+  CardContent,
+  TextField,
+  Paper,
+  styled,
+} from "@mui/material";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
 import "./ClimaApp.css";
@@ -7,6 +16,15 @@ import WeatherInfo from "./WeatherInfo";
 import WeatherForecast from "./WeatherForecast";
 import { useWeatherData } from "./hooks/useWeatherData";
 import moment from "moment";
+
+
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: "center",
+  color: "theme.palette.text.secondary",
+}));
 
 export default function ClimaApp(props) {
   const [city, setCity] = useState(undefined);
@@ -63,74 +81,85 @@ export default function ClimaApp(props) {
           }}
         >
           <Grid container sx={{ mt: 2 }}>
-            <Grid
-              item
-              xs={1}
-              sx={{
-                textAlign: "left",
-                ml: 4,
-                mt: 1,
-                display: "flex-start",
-              }}
-            >
-              <img src="ClimaLogo.png" alt="appLogo" height="64vh"></img>
+            <Grid item xs={4} sx={{ display: "flex-start" }}>
+              <Item
+                sx={{
+                  textAlign: "left",
+                  ml: 4,
+                  mt: 1,
+                  bgcolor: "transparent",
+                  boxShadow: "none",
+                }}
+              >
+                <img
+                  src="ClimaLogo.png"
+                  alt="appLogo"
+                  height="70vh"
+                  marginTop="10"
+                ></img>
+              </Item>
             </Grid>
             <Grid
               item
-              xs={11}
+              xs={8}
               sx={{
-                ml: 32,
-                mt: -3,
+                ml: 36,
+                mr: 1,
+                mt: -7,
+
                 display: "flex-start",
               }}
             >
-              <TextField
-                id="outlined-search"
-                label="Type a city name"
-                type="search"
-                size="small"
-                sx={{ width: "34vh", height: 36, p: 0 }}
-                onChange={handleCityChange}
-              />
-              <Button
-                onClick={search}
-                sx={{
-                  textTransform: "capitalize",
-                  color: "#000000",
-                  bgcolor: "transparent",
-                  fontSize: 14,
+              <Item sx={{ bgcolor: "transparent", boxShadow: "none" }}>
+                <TextField
+                  id="outlined-search"
+                  label="Type a city name"
+                  type="search"
+                  size="small"
+                  sx={{ width: "34vh", height: 36, p: 0 }}
+                  onChange={handleCityChange}
+                />
+                <Button
+                  onClick={search}
+                  sx={{
+                    textTransform: "capitalize",
+                    color: "#000000",
+                    bgcolor: "transparent",
+                    fontSize: 14,
+                    fontFamily: "Trebuchet MS",
+                    ml: 0.8,
+                    mr: 0.8,
+                    width: 30,
+                    height: 36,
+                    borderRadius: 100,
 
-                  fontFamily: "Trebuchet MS",
-                  ml: 0.8,
-                  mr: 0.8,
-                  width: 30,
-                  height: 36,
+                    "&:hover": {
+                      backgroundColor: "#e4c77e",
+                    },
+                  }}
+                >
+                  <SearchRoundedIcon sx={{ color: "#BF4BE3" }} />
+                </Button>
 
-                  "&:hover": {
-                    backgroundColor: "rgb(114, 189, 114)",
-                  },
-                }}
-              >
-                <SearchRoundedIcon sx={{ color: "#024e88" }} />
-              </Button>
-
-              <Button
-                onClick={searchByLocation}
-                sx={{
-                  textTransform: "capitalize",
-                  color: "#000000",
-                  bgcolor: "transparent",
-                  fontSize: 14,
-                  fontFamily: "Trebuchet MS",
-                  width: 30,
-                  height: 36,
-                  "&:hover": {
-                    backgroundColor: "rgb(114, 189, 114)",
-                  },
-                }}
-              >
-                <PlaceOutlinedIcon sx={{ color: "#024e88" }} />
-              </Button>
+                <Button
+                  onClick={searchByLocation}
+                  sx={{
+                    textTransform: "capitalize",
+                    color: "#000000",
+                    bgcolor: "transparent",
+                    fontSize: 14,
+                    fontFamily: "Trebuchet MS",
+                    width: 10,
+                    height: 36,
+                    borderRadius: 100,
+                    "&:hover": {
+                      backgroundColor: "#e4c77e",
+                    },
+                  }}
+                >
+                  <PlaceOutlinedIcon sx={{ color: "#BF4BE3" }} />
+                </Button>
+              </Item>
             </Grid>
 
             <WeatherInfo data={weatherData} />
