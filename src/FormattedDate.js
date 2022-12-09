@@ -1,7 +1,10 @@
 import React from "react";
 
 export default function FormattedDate(props) {
-  var showDate = props.date.format("LLL");
+  var showDate =
+    props.date.format("dddd") + "," + " " + props.date.format("DD MMM Y");
+
+
   // let days = [
   //   "Sunday",
   //   "Monday",
