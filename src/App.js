@@ -37,7 +37,7 @@ function App() {
           </a>{" "}
           and hosted on
           <a
-            href="https://637f1f9f48c65532b6f796d4--wondrous-pothos-41872e.netlify.app/"
+            href="https://master--wondrous-pothos-41872e.netlify.app/"
             target="_blank"
             rel="noopener noreferrer"
           >
