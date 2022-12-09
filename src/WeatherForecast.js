@@ -3,6 +3,7 @@ import { Box, Grid, Paper, styled } from "@mui/material";
 import WeatherIcon from "./WeatherIcon";
 import get from "lodash/get";
 import "./WeatherForecast.css";
+import moment from "moment"
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -28,7 +29,7 @@ export default function WeatherForecast(props) {
     >
       <Grid container spacing={3}>
         {forecast.map(function(daily, index) {
-          if (index < 6) {
+          if (index <= 6 && index > 0) {
             const minTemp = Math.round(
               get(daily, "temperature.minimum", "default")
             );
@@ -38,19 +39,22 @@ export default function WeatherForecast(props) {
             );
 
             const showIcon = get(daily, "condition.icon", "default");
-            const date = new Date(get(daily, "time", 0) * 1000);
-
-            const day = date.getDay();
-            const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-            const weekDay = days[day];
-
-            console.log("oiii", {
-              daily,
-              weekDay,
-              showIcon,
-              date,
-              day,
-            });
+            // date is a moment object
+            var weekDay = moment
+              .utc(get(daily, "time", 0) * 1000)
+              .format("dddd")
+              .substring(0, 3);
+            // const day = date.getDay();
+            // const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+            // const weekDay = date.format("dddd").substring(0, 3);
+      
+            // console.log("oiii", {
+            //   daily,
+            //   weekDay,
+            //   showIcon,
+            //   date,
+            //   day,
+            // });
 
             return (
               <Grid item xs key={index}>
@@ -62,9 +66,9 @@ export default function WeatherForecast(props) {
                     fontFamily: "Trebuchet MS",
                   }}
                 >
-                  {`\u00A0`}
+                  
                   {weekDay}
-                  {`\u00A0`}
+                  
                   <WeatherIcon
                     className="WeatherForecast-icon"
                     code={showIcon}

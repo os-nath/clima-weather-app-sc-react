@@ -7,6 +7,7 @@ import "./ClimaApp.css";
 import WeatherInfo from "./WeatherInfo";
 import WeatherForecast from "./WeatherForecast";
 import { useWeatherData } from "./hooks/useWeatherData";
+import moment from "moment";
 
 export default function ClimaApp(props) {
   const [city, setCity] = useState(undefined);
@@ -20,7 +21,8 @@ export default function ClimaApp(props) {
         coordinates: response.coordinates,
         temperature: response.daily[0].temperature.day,
         humidity: response.daily[0].temperature.humidity,
-        date: new Date(response.daily[0].time * 1000),
+        // date: new Date(response.daily[0].time * 1000),
+        date: moment.utc(response.daily[0].time * 1000),
         description: response.daily[0].condition.description,
         icon: response.daily[0].condition.icon,
         icon_url: response.daily[0].condition.icon_url,

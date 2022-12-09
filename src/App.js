@@ -136,7 +136,7 @@ var forecastdata = {
 
 function App() {
   const responseData = useWeatherData();
-
+  console.log("First time retrieve of API data", responseData);
   if (responseData) {
     return (
       <div className="App">
