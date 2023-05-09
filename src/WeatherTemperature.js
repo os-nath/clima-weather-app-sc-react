@@ -12,9 +12,9 @@ export default function WeatherTemperature(props) {
     return (
       <>
         <h3>{Math.round(props.celsius)}</h3>
-        <h5>
+        <h5 style={{ color: "#024e88" }}>
           °C |{" "}
-          <a href="/" onClick={changeUnits} style={{ color: "#024e88" }}>
+          <a href="/" onClick={changeUnits} style={{ color: "#aeafb0" }}>
             °F
           </a>{" "}
         </h5>
@@ -26,8 +26,8 @@ export default function WeatherTemperature(props) {
     return (
       <>
         <h3>{Math.round(fahrenheit)}</h3>
-        <h5>
-          <a href="/" onClick={changeUnits} style={{ color: "#024e88" }}>
+        <h5 style={{ color: "#024e88" }}>
+          <a href="/" onClick={changeUnits} style={{ color: "#aeafb0" }}>
             °C{" "}
           </a>
           | °F
