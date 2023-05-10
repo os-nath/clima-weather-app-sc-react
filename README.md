@@ -1,3 +1,25 @@
+Clima
+
+bulbWhat is Clima?
+
+This is a Weather app developed by me as the final project of the SheCodes Plus using HTML, CSS and JS languages.
+
+I named my weather app as Cima and created the logo below:
+
+climaWeatherAppLogo
+
+Clima is capable of searching for any city in the world and display its current weather as well as 6 days forecast. It is composed of a search engine, API integration, wind speed, weather description, weather icons, 6 days forecast, Celsius and Fahrenheit unit conversion for the current weather.
+
+cartwheeling Getting Started
+
+floppy_disk Installation
+
+go to my GitHub public repository and clone the project's URL
+Inside your terminal run git clone + paste the URL just cloned
+as it's the first time the project was pulled, run yarn install to download all needed items and packages.
+Run code .
+Run yarn start to view the project on your browser.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
